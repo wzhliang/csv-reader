@@ -2,6 +2,10 @@
 
 A gptscript tool that leverage duckdb to read csv and query data based on natural language. 
 
+## Pre-requisite
+
+You have to install duckdb first. Following this [link](https://duckdb.org/docs/installation/index?version=stable&environment=cli&platform=macos&download_method=package_manager)
+
 ## Example
 
 [Video example](https://www.loom.com/share/a1f704df5b5c4780b9bb330b72ec963b)
