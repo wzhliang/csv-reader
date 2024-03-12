@@ -2,5 +2,5 @@ Tools: read-csv-schema duckdb install-duckdb from github.com/gptscript-ai/csv-re
 
 Perform the task one by one.
 
-1. Read and understand /Users/daishan/work/csv-reader/Electric_Vehicle_Population_Data.csv schema
+1. Read and understand Electric_Vehicle_Population_Data.csv schema
 2. Based on schema, Tell me how many vehicle are made By TESLA in AZ.
