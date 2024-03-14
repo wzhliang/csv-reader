@@ -1,6 +1,6 @@
-Tools: github.com/gptscript-ai/csv-reader
+Tools: github.com/gptscript-ai/csv-reader, sys.download
 
 Perform the task one by one.
 
-1. Read and understand Electric_Vehicle_Population_Data.csv schema
+1. Download the csv file from https://data.wa.gov/api/views/f6w7-q2d2/rows.csv?accessType=DOWNLOAD to Electric_Vehicle_Population_Data.csv, and read the schema.
 2. Based on schema, Tell me what are VIN number from vehicles are made By TESLA in AZ.
