@@ -1,4 +1,5 @@
 export: read-csv-schema, duckdb, install-duckdb
+description: a toolset that is able to read csv files and make queries using nature language
 ---
 name: read-csv-schema
 description: read schema from a csv file. Install duckdb first
