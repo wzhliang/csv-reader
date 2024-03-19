@@ -1,4 +1,4 @@
-export: read-csv-schema, duckdb, install-duckdb
+export: read-csv-schema, duckdb
 description: a toolset that is able to read csv files and make queries using nature language
 ---
 name: read-csv-schema
@@ -12,82 +12,9 @@ echo "CREATE TEMPORARY TABLE temp_csv AS SELECT * FROM read_csv_auto('${csvPath}
 ---
 name: duckdb
 description: use duckdb to analyze csv file and make query. Install duckdb first.
-tools: install-duckdb
 args: input: command line arg input
 
 #!/bin/bash
 set -x
 
 duckdb -c "${input}"
-
----
-name: install-duckdb
-description: install duckdb based on the operating system.
-
-#!/bin/bash
-set -x
-
-detect_os() {
-    case "$(uname -s)" in
-       Darwin)
-         echo 'macOS'
-         ;;
-       Linux)
-         echo 'Linux'
-         ;;
-       *)
-         echo 'Other'
-         ;;
-    esac
-}
-
-install_duckdb_debian() {
-    echo "Installing DuckDB on Debian-based Linux"
-    sudo apt-get update
-    sudo apt-get install -y duckdb
-}
-
-install_duckdb_redhat() {
-    echo "Installing DuckDB on Red Hat-based Linux"
-    sudo yum update
-    sudo yum install -y duckdb
-}
-
-install_duckdb_mac() {
-    echo "Installing DuckDB on macOS"
-    brew update
-    brew install duckdb
-}
-
-install_duckdb_python() {
-    echo "Installing DuckDB Python package"
-    pip install duckdb
-}
-
-if command -v duckdb &> /dev/null
-then
-    echo "DuckDB CLI is already installed."
-else
-    OS=$(detect_os)
-
-    case $OS in
-        "macOS")
-            install_duckdb_mac
-            ;;
-        "Linux")
-            # Further detect if it's Debian-based or Red Hat-based
-            if [ -f /etc/debian_version ]; then
-                install_duckdb_debian
-            elif [ -f /etc/redhat-release ]; then
-                install_duckdb_redhat
-            else
-                echo "Unsupported Linux distribution for this script."
-                exit 1
-            fi
-            ;;
-        *)
-            echo "Unsupported OS for this script."
-            exit 1
-            ;;
-    esac
-fi
