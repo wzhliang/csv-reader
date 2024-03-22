@@ -2,9 +2,8 @@ export: read-csv-schema, duckdb
 description: a toolset that is able to read csv files and make queries using nature language
 ---
 name: read-csv-schema
-description: read schema from a csv file. Install duckdb first
+description: read schema from a csv file. 
 args: csvPath: the path to csv file
-tools: install-duckdb
 
 #!/bin/bash
 echo "CREATE TEMPORARY TABLE temp_csv AS SELECT * FROM read_csv_auto('${csvPath}'); PRAGMA table_info('temp_csv');" | duckdb ":memory:"
